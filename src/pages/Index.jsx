@@ -23,7 +23,7 @@ const Index = () => {
         <h1 className="text-2xl font-bold">My Enhanced App</h1>
       </header>
 
-      <main className="flex-grow container mx-auto p-4">
+      <main className="flex-grow container mx-auto p-4 bg-red-500">
         <Tabs defaultValue="dashboard" className="w-full">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
