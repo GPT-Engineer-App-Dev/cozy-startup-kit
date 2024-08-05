@@ -23,7 +23,7 @@ const pieChartData = [
   { name: 'Group D', value: 200 },
 ];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe'];
 
 const fetchWeatherData = async () => {
   // Simulating an API call
@@ -60,15 +60,15 @@ const Index = () => {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-gradient-to-br from-purple-500 to-pink-500' : 'bg-gradient-to-br from-gray-800 to-gray-900'}`}>
+    <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-gradient-to-br from-blue-400 to-blue-600' : 'bg-gradient-to-br from-blue-900 to-blue-950'}`}>
       <header className="bg-white bg-opacity-10 backdrop-blur-md text-white p-6 flex justify-between items-center">
         <motion.h1 
-          className="text-4xl font-bold"
+          className="text-4xl font-bold text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Super Fancy Dashboard
+          Blue Sky Dashboard
         </motion.h1>
         <Button onClick={toggleTheme} variant="outline" size="icon">
           {theme === 'light' ? <Moon className="h-[1.2rem] w-[1.2rem]" /> : <Sun className="h-[1.2rem] w-[1.2rem]" />}
@@ -88,10 +88,10 @@ const Index = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <Card className="mb-8 bg-white bg-opacity-20 backdrop-blur-md text-white">
+              <Card className="mb-8 bg-white bg-opacity-10 backdrop-blur-md text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Sparkles className="mr-2" /> Welcome to Your Super Fancy Dashboard
+                    <Sparkles className="mr-2 text-blue-200" /> Welcome to Your Blue Sky Dashboard
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -128,8 +128,8 @@ const Index = () => {
                     {['Camera', 'Zap', 'TrendingUp', 'Weather'].map((Icon, index) => (
                       <motion.div 
                         key={Icon} 
-                        className="flex flex-col items-center justify-center bg-white bg-opacity-10 rounded-lg p-4"
-                        whileHover={{ scale: 1.05 }}
+                        className="flex flex-col items-center justify-center bg-blue-500 bg-opacity-20 rounded-lg p-4"
+                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.3)' }}
                         whileTap={{ scale: 0.95 }}
                       >
                         {Icon === 'Camera' && <Camera className="h-12 w-12" />}
@@ -160,7 +160,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="grid grid-cols-2 gap-8">
-                <Card className="bg-white bg-opacity-20 backdrop-blur-md text-white">
+                <Card className="bg-blue-600 bg-opacity-20 backdrop-blur-md text-white">
                   <CardHeader>
                     <CardTitle>Line Chart Analytics</CardTitle>
                   </CardHeader>
@@ -172,7 +172,7 @@ const Index = () => {
                         <YAxis stroke="#fff" />
                         <Tooltip contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', color: '#000' }} />
                         <Legend />
-                        <Line type="monotone" dataKey="value" stroke="#8884d8" activeDot={{ r: 8 }} />
+                        <Line type="monotone" dataKey="value" stroke="#60a5fa" activeDot={{ r: 8 }} />
                       </LineChart>
                     </ResponsiveContainer>
                   </CardContent>
@@ -190,7 +190,7 @@ const Index = () => {
                           cy="50%"
                           labelLine={false}
                           outerRadius={80}
-                          fill="#8884d8"
+                          fill="#3b82f6"
                           dataKey="value"
                         >
                           {pieChartData.map((entry, index) => (
