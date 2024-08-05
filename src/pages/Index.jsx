@@ -76,7 +76,7 @@ const Index = () => {
         </Tabs>
       </main>
 
-      <footer className="bg-secondary text-secondary-foreground p-4 text-center">
+      <footer className="bg-blue-500 text-white p-4 text-center">
         <p>&copy; 2024 My Enhanced App. All rights reserved.</p>
       </footer>
     </div>
