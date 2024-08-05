@@ -10,7 +10,7 @@ const Index = () => {
         <h1 className="text-2xl font-bold">My Bare-Bones App</h1>
       </header>
 
-      <main className="flex-grow container mx-auto p-4 bg-red-500">
+      <main className="flex-grow container mx-auto p-4 bg-yellow-500">
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Welcome to Your App</h2>
           <p className="text-gray-600">This is a bare-bones application that you can easily modify and build upon.</p>
