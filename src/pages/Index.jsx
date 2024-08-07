@@ -70,7 +70,12 @@ const Index = () => {
         >
           Blue Sky Dashboard
         </motion.h1>
-        <Button onClick={toggleTheme} variant="outline" size="icon">
+        <Button 
+          onClick={toggleTheme} 
+          variant="outline" 
+          size="icon"
+          className={`${theme === 'light' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-yellow-400 text-gray-900 hover:bg-yellow-500'}`}
+        >
           {theme === 'light' ? <Moon className="h-[1.2rem] w-[1.2rem]" /> : <Sun className="h-[1.2rem] w-[1.2rem]" />}
         </Button>
       </header>
