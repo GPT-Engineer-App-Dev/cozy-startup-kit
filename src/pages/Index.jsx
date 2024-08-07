@@ -231,8 +231,8 @@ const Index = () => {
         </Tabs>
       </main>
 
-      <footer className="bg-green-600 text-white p-4 text-center">
-        <p className="text-lg">&copy; 2024 Super Fancy Green Dashboard. All rights reserved.</p>
+      <footer className="bg-red-600 text-white p-4 text-center">
+        <p className="text-lg">&copy; 2024 Super Fancy Red Dashboard. All rights reserved.</p>
       </footer>
     </div>
   );
