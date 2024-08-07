@@ -103,8 +103,8 @@ const Index = () => {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-gradient-to-br from-blue-400 to-blue-600' : 'bg-gradient-to-br from-blue-900 to-blue-950'}`}>
-      <header className="bg-blue-800 bg-opacity-90 backdrop-blur-md text-white p-6 flex justify-between items-center">
+    <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-gradient-to-br from-blue-300 to-blue-500' : 'bg-gradient-to-br from-blue-700 to-blue-900'}`}>
+      <header className="bg-blue-600 bg-opacity-90 backdrop-blur-md text-white p-6 flex justify-between items-center">
         <motion.h1 
           className="text-5xl font-bold text-white"
           initial={{ opacity: 0, y: -50 }}
@@ -117,9 +117,9 @@ const Index = () => {
           onClick={toggleTheme} 
           variant="outline" 
           size="icon"
-          className={`${theme === 'light' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-400 text-gray-900 hover:bg-blue-500'}`}
+          className={`${theme === 'light' ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-blue-300 text-blue-900 hover:bg-blue-400'}`}
         >
-          {theme === 'light' ? <Moon className="h-[1.2rem] w-[1.2rem] text-white" /> : <Sun className="h-[1.2rem] w-[1.2rem] text-gray-900" />}
+          {theme === 'light' ? <Moon className="h-[1.2rem] w-[1.2rem] text-white" /> : <Sun className="h-[1.2rem] w-[1.2rem] text-blue-900" />}
         </Button>
       </header>
 
@@ -136,7 +136,7 @@ const Index = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <Card className="mb-8 bg-blue-500 bg-opacity-10 backdrop-blur-md text-white">
+              <Card className="mb-8 bg-blue-400 bg-opacity-20 backdrop-blur-md text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Sparkles className="mr-2 text-blue-200" /> Welcome to Your Blue Sky Dashboard
@@ -182,16 +182,16 @@ const Index = () => {
                       <span className="mt-2 text-lg font-semibold">Camera</span>
                     </motion.div>
                     <motion.div 
-                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(239, 68, 68, 0.3)' }}
+                      className="flex flex-col items-center justify-center bg-blue-600 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(37, 99, 235, 0.3)' }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Zap className="h-12 w-12" />
                       <span className="mt-2 text-lg font-semibold">Energy</span>
                     </motion.div>
                     <motion.div 
-                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(239, 68, 68, 0.3)' }}
+                      className="flex flex-col items-center justify-center bg-blue-700 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(29, 78, 216, 0.3)' }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <TrendingUp className="h-12 w-12" />
@@ -210,7 +210,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <Card className="bg-blue-600 bg-opacity-20 backdrop-blur-md text-white">
+                <Card className="bg-blue-500 bg-opacity-20 backdrop-blur-md text-white">
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <TrendingUp className="mr-2" /> Line Chart Analytics
@@ -287,7 +287,7 @@ const Index = () => {
         </Tabs>
       </main>
 
-      <footer className="bg-blue-800 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
+      <footer className="bg-blue-600 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
         <p className="text-lg">&copy; 2024 Super Fancy Blue Sky Dashboard. All rights reserved.</p>
       </footer>
     </div>

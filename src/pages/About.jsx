@@ -4,8 +4,8 @@ import { Info, Users, Target, Rocket } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-400 to-blue-600">
-      <header className="bg-blue-800 bg-opacity-90 backdrop-blur-md text-white p-6">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-300 to-blue-500">
+      <header className="bg-blue-600 bg-opacity-90 backdrop-blur-md text-white p-6">
         <motion.h1 
           className="text-4xl font-bold text-white"
           initial={{ opacity: 0, y: -50 }}
@@ -22,7 +22,7 @@ const About = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Card className="mb-8 bg-blue-500 bg-opacity-10 backdrop-blur-md text-white">
+          <Card className="mb-8 bg-blue-400 bg-opacity-20 backdrop-blur-md text-white">
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Info className="mr-2 text-blue-200" /> Our Story
@@ -34,7 +34,7 @@ const About = () => {
           </Card>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-blue-500 bg-opacity-10 backdrop-blur-md text-white">
+            <Card className="bg-blue-400 bg-opacity-20 backdrop-blur-md text-white">
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Target className="mr-2 text-blue-200" /> Our Mission
@@ -45,7 +45,7 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-blue-500 bg-opacity-10 backdrop-blur-md text-white">
+            <Card className="bg-blue-400 bg-opacity-20 backdrop-blur-md text-white">
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Users className="mr-2 text-blue-200" /> Our Team
@@ -61,7 +61,7 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-blue-500 bg-opacity-10 backdrop-blur-md text-white md:col-span-2">
+            <Card className="bg-blue-400 bg-opacity-20 backdrop-blur-md text-white md:col-span-2">
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Rocket className="mr-2 text-blue-200" /> Our Vision
@@ -75,8 +75,8 @@ const About = () => {
         </motion.div>
       </main>
 
-      <footer className="bg-blue-800 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
-        <p>&copy; 2024 Red Sky Dashboard. All rights reserved.</p>
+      <footer className="bg-blue-600 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
+        <p>&copy; 2024 Blue Sky Dashboard. All rights reserved.</p>
       </footer>
     </div>
   );
