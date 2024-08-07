@@ -23,7 +23,7 @@ const pieChartData = [
   { name: 'Group D', value: 200 },
 ];
 
-const COLORS = ['#ef4444', '#f87171', '#fca5a5', '#fecaca'];
+const COLORS = ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe'];
 
 const fetchWeatherData = async () => {
   // Simulating an API call
@@ -103,21 +103,21 @@ const Index = () => {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-gradient-to-br from-red-400 to-red-600' : 'bg-gradient-to-br from-red-900 to-red-950'}`}>
-      <header className="bg-red-800 bg-opacity-90 backdrop-blur-md text-white p-6 flex justify-between items-center">
+    <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-gradient-to-br from-blue-400 to-blue-600' : 'bg-gradient-to-br from-blue-900 to-blue-950'}`}>
+      <header className="bg-blue-800 bg-opacity-90 backdrop-blur-md text-white p-6 flex justify-between items-center">
         <motion.h1 
           className="text-5xl font-bold text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Red Sky Dashboard
+          Blue Sky Dashboard
         </motion.h1>
         <Button 
           onClick={toggleTheme} 
           variant="outline" 
           size="icon"
-          className={`${theme === 'light' ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-red-400 text-gray-900 hover:bg-red-500'}`}
+          className={`${theme === 'light' ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-blue-400 text-gray-900 hover:bg-blue-500'}`}
         >
           {theme === 'light' ? <Moon className="h-[1.2rem] w-[1.2rem] text-white" /> : <Sun className="h-[1.2rem] w-[1.2rem] text-gray-900" />}
         </Button>
@@ -136,10 +136,10 @@ const Index = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <Card className="mb-8 bg-red-500 bg-opacity-10 backdrop-blur-md text-white">
+              <Card className="mb-8 bg-blue-500 bg-opacity-10 backdrop-blur-md text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Sparkles className="mr-2 text-red-200" /> Welcome to Your Red Sky Dashboard
+                    <Sparkles className="mr-2 text-blue-200" /> Welcome to Your Blue Sky Dashboard
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -174,24 +174,24 @@ const Index = () => {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <motion.div 
-                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(220, 38, 38, 0.3)' }}
+                      className="flex flex-col items-center justify-center bg-blue-500 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.3)' }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Camera className="h-12 w-12" />
                       <span className="mt-2 text-lg font-semibold">Camera</span>
                     </motion.div>
                     <motion.div 
-                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(220, 38, 38, 0.3)' }}
+                      className="flex flex-col items-center justify-center bg-blue-500 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.3)' }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Zap className="h-12 w-12" />
                       <span className="mt-2 text-lg font-semibold">Energy</span>
                     </motion.div>
                     <motion.div 
-                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(220, 38, 38, 0.3)' }}
+                      className="flex flex-col items-center justify-center bg-blue-500 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.3)' }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <TrendingUp className="h-12 w-12" />
@@ -210,7 +210,7 @@ const Index = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <Card className="bg-red-600 bg-opacity-20 backdrop-blur-md text-white">
+                <Card className="bg-blue-600 bg-opacity-20 backdrop-blur-md text-white">
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <TrendingUp className="mr-2" /> Line Chart Analytics
@@ -224,7 +224,7 @@ const Index = () => {
                         <YAxis stroke="#fff" />
                         <Tooltip contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', color: '#000' }} />
                         <Legend />
-                        <Line type="monotone" dataKey="value" stroke="#ef4444" strokeWidth={2} activeDot={{ r: 8 }} />
+                        <Line type="monotone" dataKey="value" stroke="#3b82f6" strokeWidth={2} activeDot={{ r: 8 }} />
                       </LineChart>
                     </ResponsiveContainer>
                   </CardContent>
@@ -288,7 +288,7 @@ const Index = () => {
       </main>
 
       <footer className="bg-blue-800 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
-        <p className="text-lg">&copy; 2024 Super Fancy Red Sky Dashboard. All rights reserved.</p>
+        <p className="text-lg">&copy; 2024 Super Fancy Blue Sky Dashboard. All rights reserved.</p>
       </footer>
     </div>
   );
