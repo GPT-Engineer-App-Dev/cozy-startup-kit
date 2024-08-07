@@ -61,7 +61,7 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-gradient-to-br from-blue-400 to-blue-600' : 'bg-gradient-to-br from-blue-900 to-blue-950'}`}>
-      <header className="bg-white bg-opacity-10 backdrop-blur-md text-white p-6 flex justify-between items-center">
+      <header className="bg-red-600 text-white p-6 flex justify-between items-center">
         <motion.h1 
           className="text-5xl font-bold text-white"
           initial={{ opacity: 0, y: -50 }}
