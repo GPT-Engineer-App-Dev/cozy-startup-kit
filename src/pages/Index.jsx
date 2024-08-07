@@ -63,7 +63,7 @@ const Index = () => {
     <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-gradient-to-br from-blue-400 to-blue-600' : 'bg-gradient-to-br from-blue-900 to-blue-950'}`}>
       <header className="bg-white bg-opacity-10 backdrop-blur-md text-white p-6 flex justify-between items-center">
         <motion.h1 
-          className="text-4xl font-bold text-white"
+          className="text-5xl font-bold text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -95,20 +95,20 @@ const Index = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg mb-4">Explore your personalized insights and controls.</p>
+                  <p className="text-xl mb-4">Explore your personalized insights and controls.</p>
                   <div className="flex flex-col space-y-4 mb-6">
-                    <div className="text-4xl font-bold">{currentTime.toLocaleTimeString()}</div>
+                    <div className="text-5xl font-bold">{currentTime.toLocaleTimeString()}</div>
                     <div className="flex items-center justify-center gap-4">
                       <Button 
                         variant="outline" 
-                        size="sm"
+                        size="lg"
                         onClick={() => setCount(count - 1)}
                       >
                         -
                       </Button>
                       <motion.span 
                         key={count}
-                        className="text-2xl font-bold"
+                        className="text-4xl font-bold"
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ type: "spring", stiffness: 300 }}
@@ -117,7 +117,7 @@ const Index = () => {
                       </motion.span>
                       <Button 
                         variant="outline" 
-                        size="icon"
+                        size="lg"
                         onClick={() => setCount(count + 1)}
                       >
                         +
@@ -132,20 +132,20 @@ const Index = () => {
                         whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.3)' }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        {Icon === 'Camera' && <Camera className="h-10 w-10" />}
-                        {Icon === 'Zap' && <Zap className="h-10 w-10" />}
-                        {Icon === 'TrendingUp' && <TrendingUp className="h-10 w-10" />}
+                        {Icon === 'Camera' && <Camera className="h-12 w-12" />}
+                        {Icon === 'Zap' && <Zap className="h-12 w-12" />}
+                        {Icon === 'TrendingUp' && <TrendingUp className="h-12 w-12" />}
                         {Icon === 'Weather' && (
                           isWeatherLoading ? (
-                            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-white"></div>
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
                           ) : (
                             <>
                               {getWeatherIcon(weatherData.condition)}
-                              <span className="mt-1 text-sm">{weatherData.temp}°C</span>
+                              <span className="mt-1 text-lg">{weatherData.temp}°C</span>
                             </>
                           )
                         )}
-                        <span className="mt-2 text-base">{Icon}</span>
+                        <span className="mt-2 text-lg font-semibold">{Icon}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -217,10 +217,10 @@ const Index = () => {
                   <CardTitle>Settings</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg mb-4">Customize your dashboard experience here.</p>
+                  <p className="text-xl mb-4">Customize your dashboard experience here.</p>
                   <div className="flex items-center justify-between">
-                    <span>Theme</span>
-                    <Button onClick={toggleTheme} variant="outline">
+                    <span className="text-lg">Theme</span>
+                    <Button onClick={toggleTheme} variant="outline" size="lg">
                       {theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
                     </Button>
                   </div>
@@ -232,7 +232,7 @@ const Index = () => {
       </main>
 
       <footer className="bg-white bg-opacity-10 backdrop-blur-md text-white p-4 text-center">
-        <p className="text-base">&copy; 2024 Super Fancy Blue Dashboard. All rights reserved.</p>
+        <p className="text-lg">&copy; 2024 Super Fancy Blue Dashboard. All rights reserved.</p>
       </footer>
     </div>
   );
