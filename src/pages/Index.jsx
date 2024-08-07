@@ -232,7 +232,7 @@ const Index = () => {
       </main>
 
       <footer className="bg-white bg-opacity-10 backdrop-blur-md text-white p-4 text-center">
-        <p>&copy; 2024 Super Fancy Blue Dashboard. All rights reserved.</p>
+        <p className="text-lg">&copy; 2024 Super Fancy Blue Dashboard. All rights reserved.</p>
       </footer>
     </div>
   );
