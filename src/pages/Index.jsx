@@ -182,16 +182,16 @@ const Index = () => {
                       <span className="mt-2 text-lg font-semibold">Camera</span>
                     </motion.div>
                     <motion.div 
-                      className="flex flex-col items-center justify-center bg-blue-500 bg-opacity-20 rounded-lg p-4"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.3)' }}
+                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(239, 68, 68, 0.3)' }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Zap className="h-12 w-12" />
                       <span className="mt-2 text-lg font-semibold">Energy</span>
                     </motion.div>
                     <motion.div 
-                      className="flex flex-col items-center justify-center bg-blue-500 bg-opacity-20 rounded-lg p-4"
-                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.3)' }}
+                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(239, 68, 68, 0.3)' }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <TrendingUp className="h-12 w-12" />
