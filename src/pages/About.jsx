@@ -4,7 +4,7 @@ import { Info, Users, Target, Rocket } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-400 to-blue-600">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-red-400 to-red-600">
       <header className="bg-white bg-opacity-10 backdrop-blur-md text-white p-6">
         <motion.h1 
           className="text-4xl font-bold text-white"
@@ -12,7 +12,7 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          About Blue Sky Dashboard
+          About Red Sky Dashboard
         </motion.h1>
       </header>
 
@@ -25,11 +25,11 @@ const About = () => {
           <Card className="mb-8 bg-white bg-opacity-10 backdrop-blur-md text-white">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Info className="mr-2 text-blue-200" /> Our Story
+                <Info className="mr-2 text-red-200" /> Our Story
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-lg mb-4">Blue Sky Dashboard was born from a passion for creating intuitive and powerful data visualization tools. Our journey began with a simple idea: to make complex data accessible and actionable for everyone.</p>
+              <p className="text-lg mb-4">Red Sky Dashboard was born from a passion for creating intuitive and powerful data visualization tools. Our journey began with a simple idea: to make complex data accessible and actionable for everyone.</p>
             </CardContent>
           </Card>
 
@@ -37,7 +37,7 @@ const About = () => {
             <Card className="bg-white bg-opacity-10 backdrop-blur-md text-white">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Target className="mr-2 text-blue-200" /> Our Mission
+                  <Target className="mr-2 text-red-200" /> Our Mission
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -48,7 +48,7 @@ const About = () => {
             <Card className="bg-white bg-opacity-10 backdrop-blur-md text-white">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Users className="mr-2 text-blue-200" /> Our Team
+                  <Users className="mr-2 text-red-200" /> Our Team
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -64,19 +64,19 @@ const About = () => {
             <Card className="bg-white bg-opacity-10 backdrop-blur-md text-white md:col-span-2">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Rocket className="mr-2 text-blue-200" /> Our Vision
+                  <Rocket className="mr-2 text-red-200" /> Our Vision
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg">We envision a future where data analysis is not just for experts, but a tool that enhances decision-making in every aspect of life and business. Blue Sky Dashboard is committed to leading this transformation, one dashboard at a time.</p>
+                <p className="text-lg">We envision a future where data analysis is not just for experts, but a tool that enhances decision-making in every aspect of life and business. Red Sky Dashboard is committed to leading this transformation, one dashboard at a time.</p>
               </CardContent>
             </Card>
           </div>
         </motion.div>
       </main>
 
-      <footer className="bg-blue-600 text-white p-4 text-center">
-        <p>&copy; 2024 Blue Sky Dashboard. All rights reserved.</p>
+      <footer className="bg-red-600 text-white p-4 text-center">
+        <p>&copy; 2024 Red Sky Dashboard. All rights reserved.</p>
       </footer>
     </div>
   );
