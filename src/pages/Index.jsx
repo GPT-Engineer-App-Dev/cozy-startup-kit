@@ -287,7 +287,7 @@ const Index = () => {
         </Tabs>
       </main>
 
-      <footer className="bg-red-800 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
+      <footer className="bg-blue-800 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
         <p className="text-lg">&copy; 2024 Super Fancy Red Sky Dashboard. All rights reserved.</p>
       </footer>
     </div>
