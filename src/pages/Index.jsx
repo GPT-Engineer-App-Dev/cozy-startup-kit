@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { Camera, Sparkles, Zap, TrendingUp, Sun, Moon, Cloud, Droplets, Wind, Thermometer } from "lucide-react";
+import { Camera, Sparkles, Zap, TrendingUp, Sun, Moon, Cloud, Droplets, Wind, Thermometer, Settings } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from '@tanstack/react-query';
 
