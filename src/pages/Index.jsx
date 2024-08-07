@@ -96,9 +96,9 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-lg mb-4">Explore your personalized insights and controls.</p>
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex flex-col space-y-6 mb-6">
                     <div className="text-4xl font-bold">{currentTime.toLocaleTimeString()}</div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center gap-4">
                       <Button 
                         variant="outline" 
                         size="icon"
