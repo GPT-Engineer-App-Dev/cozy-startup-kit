@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { Camera, Sparkles, Zap, TrendingUp, Sun, Moon, Cloud, Droplets } from "lucide-react";
+import { Camera, Sparkles, Zap, TrendingUp, Sun, Moon, Cloud, Droplets, Wind, Thermometer } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from '@tanstack/react-query';
 
@@ -28,12 +28,69 @@ const COLORS = ['#ef4444', '#f87171', '#fca5a5', '#fecaca'];
 const fetchWeatherData = async () => {
   // Simulating an API call
   await new Promise(resolve => setTimeout(resolve, 1000));
-  return { temp: 22, condition: 'Sunny' };
+  return { temp: 22, condition: 'Sunny', humidity: 60, windSpeed: 5 };
+};
+
+const FancyClock = () => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <motion.div
+      className="text-6xl font-bold mb-4"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {time.toLocaleTimeString()}
+    </motion.div>
+  );
+};
+
+const WeatherWidget = ({ data, isLoading }) => {
+  const getWeatherIcon = (condition) => {
+    switch (condition) {
+      case 'Sunny': return <Sun className="h-16 w-16 text-yellow-400" />;
+      case 'Cloudy': return <Cloud className="h-16 w-16 text-gray-400" />;
+      case 'Rainy': return <Droplets className="h-16 w-16 text-blue-400" />;
+      default: return <Sun className="h-16 w-16 text-yellow-400" />;
+    }
+  };
+
+  if (isLoading) {
+    return <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>;
+  }
+
+  return (
+    <motion.div
+      className="flex flex-col items-center bg-red-500 bg-opacity-20 rounded-lg p-6"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {getWeatherIcon(data.condition)}
+      <span className="text-4xl font-bold mt-2">{data.temp}°C</span>
+      <span className="text-xl">{data.condition}</span>
+      <div className="flex justify-between w-full mt-4">
+        <div className="flex items-center">
+          <Droplets className="h-5 w-5 mr-2" />
+          <span>{data.humidity}%</span>
+        </div>
+        <div className="flex items-center">
+          <Wind className="h-5 w-5 mr-2" />
+          <span>{data.windSpeed} km/h</span>
+        </div>
+      </div>
+    </motion.div>
+  );
 };
 
 const Index = () => {
   const [count, setCount] = useState(0);
-  const [currentTime, setCurrentTime] = useState(new Date());
   const [theme, setTheme] = useState('light');
 
   const { data: weatherData, isLoading: isWeatherLoading } = useQuery({
@@ -41,34 +98,20 @@ const Index = () => {
     queryFn: fetchWeatherData,
   });
 
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
   };
 
-  const getWeatherIcon = (condition) => {
-    switch (condition) {
-      case 'Sunny': return <Sun className="h-8 w-8 text-yellow-400" />;
-      case 'Cloudy': return <Cloud className="h-8 w-8 text-gray-400" />;
-      case 'Rainy': return <Droplets className="h-8 w-8 text-blue-400" />;
-      default: return <Sun className="h-8 w-8 text-yellow-400" />;
-    }
-  };
-
   return (
     <div className={`min-h-screen flex flex-col ${theme === 'light' ? 'bg-gradient-to-br from-red-400 to-red-600' : 'bg-gradient-to-br from-red-900 to-red-950'}`}>
-      <header className="bg-red-800 text-white p-6 flex justify-between items-center">
+      <header className="bg-red-800 bg-opacity-90 backdrop-blur-md text-white p-6 flex justify-between items-center">
         <motion.h1 
           className="text-5xl font-bold text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Blue Sky Dashboard
+          Red Sky Dashboard
         </motion.h1>
         <Button 
           onClick={toggleTheme} 
@@ -102,7 +145,7 @@ const Index = () => {
                 <CardContent>
                   <p className="text-xl mb-4">Explore your personalized insights and controls.</p>
                   <div className="flex flex-col space-y-4 mb-6">
-                    <div className="text-5xl font-bold">{currentTime.toLocaleTimeString()}</div>
+                    <FancyClock />
                     <div className="flex items-center justify-center gap-4">
                       <Button 
                         variant="outline" 
@@ -129,30 +172,32 @@ const Index = () => {
                       </Button>
                     </div>
                   </div>
-                  <div className="grid grid-cols-4 gap-4">
-                    {['Camera', 'Zap', 'TrendingUp', 'Weather'].map((Icon, index) => (
-                      <motion.div 
-                        key={Icon} 
-                        className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
-                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(220, 38, 38, 0.3)' }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        {Icon === 'Camera' && <Camera className="h-12 w-12" />}
-                        {Icon === 'Zap' && <Zap className="h-12 w-12" />}
-                        {Icon === 'TrendingUp' && <TrendingUp className="h-12 w-12" />}
-                        {Icon === 'Weather' && (
-                          isWeatherLoading ? (
-                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
-                          ) : (
-                            <>
-                              {getWeatherIcon(weatherData.condition)}
-                              <span className="mt-1 text-lg">{weatherData.temp}°C</span>
-                            </>
-                          )
-                        )}
-                        <span className="mt-2 text-lg font-semibold">{Icon}</span>
-                      </motion.div>
-                    ))}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <motion.div 
+                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(220, 38, 38, 0.3)' }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Camera className="h-12 w-12" />
+                      <span className="mt-2 text-lg font-semibold">Camera</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(220, 38, 38, 0.3)' }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Zap className="h-12 w-12" />
+                      <span className="mt-2 text-lg font-semibold">Energy</span>
+                    </motion.div>
+                    <motion.div 
+                      className="flex flex-col items-center justify-center bg-red-500 bg-opacity-20 rounded-lg p-4"
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(220, 38, 38, 0.3)' }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <TrendingUp className="h-12 w-12" />
+                      <span className="mt-2 text-lg font-semibold">Trends</span>
+                    </motion.div>
+                    <WeatherWidget data={weatherData} isLoading={isWeatherLoading} />
                   </div>
                 </CardContent>
               </Card>
@@ -164,27 +209,31 @@ const Index = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <Card className="bg-red-600 bg-opacity-20 backdrop-blur-md text-white">
                   <CardHeader>
-                    <CardTitle>Line Chart Analytics</CardTitle>
+                    <CardTitle className="flex items-center">
+                      <TrendingUp className="mr-2" /> Line Chart Analytics
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ResponsiveContainer width="100%" height={300}>
                       <LineChart data={lineChartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                        <CartesianGrid strokeDasharray="3 3" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                         <XAxis dataKey="name" stroke="#fff" />
                         <YAxis stroke="#fff" />
                         <Tooltip contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', color: '#000' }} />
                         <Legend />
-                        <Line type="monotone" dataKey="value" stroke="#ef4444" activeDot={{ r: 8 }} />
+                        <Line type="monotone" dataKey="value" stroke="#ef4444" strokeWidth={2} activeDot={{ r: 8 }} />
                       </LineChart>
                     </ResponsiveContainer>
                   </CardContent>
                 </Card>
                 <Card className="bg-white bg-opacity-20 backdrop-blur-md text-white">
                   <CardHeader>
-                    <CardTitle>Pie Chart Analytics</CardTitle>
+                    <CardTitle className="flex items-center">
+                      <PieChart className="mr-2" /> Pie Chart Analytics
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ResponsiveContainer width="100%" height={300}>
@@ -199,7 +248,7 @@ const Index = () => {
                           dataKey="value"
                         >
                           {pieChartData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={['#ef4444', '#f87171', '#fca5a5', '#fecaca'][index % 4]} />
+                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                           ))}
                         </Pie>
                         <Tooltip contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', color: '#000' }} />
@@ -219,7 +268,9 @@ const Index = () => {
             >
               <Card className="bg-white bg-opacity-20 backdrop-blur-md text-white">
                 <CardHeader>
-                  <CardTitle>Settings</CardTitle>
+                  <CardTitle className="flex items-center">
+                    <Settings className="mr-2" /> Settings
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-xl mb-4">Customize your dashboard experience here.</p>
@@ -236,7 +287,7 @@ const Index = () => {
         </Tabs>
       </main>
 
-      <footer className="bg-red-800 text-white p-4 text-center">
+      <footer className="bg-red-800 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
         <p className="text-lg">&copy; 2024 Super Fancy Red Sky Dashboard. All rights reserved.</p>
       </footer>
     </div>
