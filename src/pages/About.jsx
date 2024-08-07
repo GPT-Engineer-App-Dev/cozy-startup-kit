@@ -4,15 +4,15 @@ import { Info, Users, Target, Rocket } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-300 to-blue-500">
-      <header className="bg-blue-600 bg-opacity-90 backdrop-blur-md text-white p-6">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-red-300 to-red-500">
+      <header className="bg-red-600 bg-opacity-90 backdrop-blur-md text-white p-6">
         <motion.h1 
           className="text-4xl font-bold text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          About Blue Sky Dashboard
+          About Red Sky Dashboard
         </motion.h1>
       </header>
 
@@ -22,10 +22,10 @@ const About = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Card className="mb-8 bg-blue-400 bg-opacity-20 backdrop-blur-md text-white">
+          <Card className="mb-8 bg-red-400 bg-opacity-20 backdrop-blur-md text-white">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Info className="mr-2 text-blue-200" /> Our Story
+                <Info className="mr-2 text-red-200" /> Our Story
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -34,10 +34,10 @@ const About = () => {
           </Card>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-blue-400 bg-opacity-20 backdrop-blur-md text-white">
+            <Card className="bg-red-400 bg-opacity-20 backdrop-blur-md text-white">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Target className="mr-2 text-blue-200" /> Our Mission
+                  <Target className="mr-2 text-red-200" /> Our Mission
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -45,10 +45,10 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-blue-400 bg-opacity-20 backdrop-blur-md text-white">
+            <Card className="bg-red-400 bg-opacity-20 backdrop-blur-md text-white">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Users className="mr-2 text-blue-200" /> Our Team
+                  <Users className="mr-2 text-red-200" /> Our Team
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -61,10 +61,10 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-blue-400 bg-opacity-20 backdrop-blur-md text-white md:col-span-2">
+            <Card className="bg-red-400 bg-opacity-20 backdrop-blur-md text-white md:col-span-2">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Rocket className="mr-2 text-blue-200" /> Our Vision
+                  <Rocket className="mr-2 text-red-200" /> Our Vision
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -75,8 +75,8 @@ const About = () => {
         </motion.div>
       </main>
 
-      <footer className="bg-blue-600 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
-        <p>&copy; 2024 Blue Sky Dashboard. All rights reserved.</p>
+      <footer className="bg-red-600 bg-opacity-90 backdrop-blur-md text-white p-4 text-center">
+        <p>&copy; 2024 Red Sky Dashboard. All rights reserved.</p>
       </footer>
     </div>
   );
