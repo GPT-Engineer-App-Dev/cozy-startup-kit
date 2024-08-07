@@ -75,8 +75,8 @@ const About = () => {
         </motion.div>
       </main>
 
-      <footer className="bg-blue-600 text-white p-4 text-center">
-        <p>&copy; 2024 Blue Sky Dashboard. All rights reserved.</p>
+      <footer className="bg-red-600 text-white p-4 text-center">
+        <p>&copy; 2024 Red Sky Dashboard. All rights reserved.</p>
       </footer>
     </div>
   );
